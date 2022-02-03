@@ -1,5 +1,6 @@
 const shape = document.querySelector('#shape');
 const timer = document.querySelector('#timer');
+const body = document.querySelector('body');
 const themeButton = document.querySelector('#themeButton');
 var startTime = new Date().getTime();
 
@@ -35,14 +36,34 @@ var lightModeMessage = '🌞';
 var darkModeMessage = '🌙';
 themeButton.innerText = lightModeMessage;
 
-themeButton.addEventListener('click', () => {
-    const body = document.querySelector('body');
+const changeThemeToDark = () => {
+    body.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+    themeButton.innerText = darkModeMessage;
+}
 
-    if (body.classList.contains('dark')) {
-        body.classList.remove('dark');
-        themeButton.innerText = lightModeMessage;
+const changeThemeToLight = () => {
+    body.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+    themeButton.innerText = lightModeMessage;
+}
+
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme) {
+    if (currentTheme == 'dark') {
+        changeThemeToDark();
     } else {
-        body.classList.add('dark');
-        themeButton.innerText = darkModeMessage;
+        changeThemeToLight();
+    }
+}
+
+themeButton.addEventListener('click', () => {
+    let theme = localStorage.getItem('theme');
+
+    if (theme == 'dark') {
+        changeThemeToLight();
+    } else {
+        changeThemeToDark();
     }
 });
