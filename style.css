@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --lightBG: #F5EEDC;
+    --lightTXT: #000;
+    --darkBG: #323232;
+    --darkTXT: #FFF;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--lightBG);
+    color: var(--lightTXT);
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Makes the text unselectable. */
+* { 
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.dark {
+    background-color: var(--darkBG);
+    color: #FFF;
+}
+
+.dark #theme-control button {
+    border: 2px solid var(--darkTXT);
+    background-color: var(--darkBG);
+}
+
+#header {
+    text-align: center;
+}
+
+#header h1 {
+    font-weight: 900;
+}
+
+#shape-container {
+    margin: 10vw;
+    display: flex;
+    justify-content: center;
+}
+
+#shape {
+    height: 100px;
+    width: 100px;
+    display: none;
+}
+
+#theme-control {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 25px 50px;
+}
+
+#theme-control button {
+    padding: 5px 20px;
+    border-radius: 32px;
+    border: 2px solid var(--darkBG);
+    font-weight: 600;
+    font-family: monospace;
+}
