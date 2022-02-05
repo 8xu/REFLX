@@ -48,6 +48,14 @@ const changeThemeToLight = () => {
     themeButton.innerText = lightModeMessage;
 }
 
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    changeThemeToDark();
+}
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    changeThemeToLight();
+}
+
 const currentTheme = localStorage.getItem('theme');
 
 if (currentTheme) {
